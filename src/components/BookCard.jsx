@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {Card, CardTitle, CardImg, CardBody, Button, Modal} from 'reactstrap'
+import React, { useState } from 'react'
+import { Card, CardTitle, CardImg, CardBody, Button, Modal } from 'reactstrap'
 
 
 const BookCard = ({
@@ -11,8 +11,8 @@ const BookCard = ({
     publisher,
     description,
     previewLink,
-    infoLink 
-}) => {   
+    infoLink
+}) => {
     const [modal, setModal] = useState(false);
     const toggle = () => {
 
@@ -23,65 +23,65 @@ const BookCard = ({
     }
 
     return (
-        <Card style={ {width: '233px'} } className='m-auto'>
-            <CardImg 
-                top 
-                style={{width: '100%', height: '233px'} } 
-                src={thumbnail} 
-                alt={ title } 
+        <Card style={{ width: '233px' }} className='m-auto'>
+            <CardImg
+                top
+                style={{ width: '100%', height: '233px' }}
+                src={thumbnail}
+                alt={title}
             />
             <CardBody>
-                <CardTitle className='card-title'>{ title }</CardTitle>
+                <CardTitle className='card-title'>{title}</CardTitle>
                 <Button onClick={(event) => toggle(event, '...')}>Больше информации</Button>
             </CardBody>
 
-            <Modal isOpen={ modal } toggle={ toggle }>
+            <Modal isOpen={modal} toggle={toggle}>
                 <div className='modal-header d-flex justify-content-center'>
-                    <h5 className='modal-title text-center' id='exampleModalLabel'>{ title }</h5>
-                   
+                    <h5 className='modal-title text-center' id='exampleModalLabel'>{title}</h5>
+
                 </div>
                 <div className="d-flex justify-content-start ml-3">
-                    <img src={ thumbnail } alt={ title } style={ { height: '223px' } }/>
+                    <img src={thumbnail} alt={title} style={{ height: '223px' }} />
                     <div className='ml-3'>
-                        <p>Страницы: { pageCount }</p>
-                        <p>Язык: { language }</p>
-                        <p>Автор: { author }</p>
-                        <p>Publisher: { publisher }</p>
+                        <p>Страницы: {pageCount}</p>
+                        <p>Язык: {language}</p>
+                        <p>Автор: {author}</p>
+                        <p>Опубликовано: {publisher}</p>
                     </div>
                 </div>
                 <div className='mt-3 mr-3 ml-3 mb-3'>{description}</div>
                 <div className='modal-footer'>
-                     <div className="left-silde">
-                         <a 
-                            href={previewLink} 
-                            className='btn-link' 
-                            color='default' 
-                            type='button' 
-                            target='_blank' 
+                    <div className="left-silde">
+                        <a
+                            href={previewLink}
+                            className='btn-link'
+                            color='default'
+                            type='button'
+                            target='_blank'
                             rel='noopener noreferrer'>
-                             Информация
+                            Информация
                         </a>
-                     </div>
-                     <div className='divider'>
-                     <div className="right-silde">
-                         <a 
-                            href={infoLink} 
-                            className='btn-link' 
-                            color='default' 
-                            type='button' 
-                            target='_blank' 
-                            rel='noopener noreferrer'>
-                             КУПИТЬ
-                        </a>
-                     </div>
-                     </div>
+                    </div>
+                    <div className='divider'>
+                        <div className="right-silde">
+                            <a
+                                href={infoLink}
+                                className='btn-link'
+                                color='default'
+                                type='button'
+                                target='_blank'
+                                rel='noopener noreferrer'>
+                                КУПИТЬ
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </Modal>
-            
-            </Card>
+
+        </Card>
     )
 }
 
-    
 
-    export default BookCard;
+
+export default BookCard;
